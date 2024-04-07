@@ -7,7 +7,9 @@
 </head>
 <body>
     {% block content %}{% endblock content %}
-    <p><a href="{% url 'logout' %}">Se déconnecter</a></p>
-    <p><a href="{% url 'password_change' %}">changer le mot de passe</a></p>
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'logout' %}">Se déconnecter</a></p>
+        <p><a href="{% url 'password_change' %}">changer le mot de passe</a></p>
+    {% endif %}
 </body>
 </html>
