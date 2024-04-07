@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Connexion</h2>
-<form method="post">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <button type="submit">Se connecter</button>
-</form>
-<p>Pas encore membre ? <a href="{% url 'signup' %}">Inscrivez-vous maintenant !</a></p>
+{% load static %}
+
+<div class="ConnexionPage">
+    <div class="formConnexion">
+        <p class="GajelabTitle">Medical Record Gajelabs</p>
+        <h2 >Connexion</h2>
+        <form method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+    <div class="imageGajelab">
+        <img src="{% static 'images/gajelab.jpeg'%}" alt="">
+        <p class="inscriptionLink">Pas encore membre ? <a href="{% url 'signup' %}">signup!</a></p>
+    </div>
+</div>
 {% endblock content %}

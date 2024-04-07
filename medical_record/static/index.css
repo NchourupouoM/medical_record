@@ -1,0 +1,35 @@
+*{
+    background-color: rgb(227, 243, 245);
+}
+
+.ConnexionPage{
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 400em;
+}
+
+.imageGajelab img{
+    margin-top: 180px;
+    width: 150px;
+    height: 150px;
+}
+
+/* .formConnexion{
+
+} */
+
+.GajelabTitle{
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    width: 200px;
+    margin-left: 60px;
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+}
