@@ -9,6 +9,7 @@ import patient.views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # authentication urls
     path("",LoginView.as_view(
         template_name = 'authentication/login.html',
         redirect_authenticated_user = True),
@@ -22,8 +23,10 @@ urlpatterns = [
         template_name='authentication/password_change_done.html'),
         name='password_change_done'
         ),
-    path('home/',patient.views.home, name='home'),
     path('signup/',authentication.views.signup_page, name='signup'),
+    # patient urls
+    path('home/',patient.views.home, name='home'),
+    path('patient_list/',patient.views.patient_list,name='patient_list')
     
 ]
 
