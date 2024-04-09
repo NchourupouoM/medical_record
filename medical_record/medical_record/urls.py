@@ -28,8 +28,10 @@ urlpatterns = [
     path('home/',patient.views.home, name='home'),
     path('patient_list/',patient.views.patient_list,name='patient_list'),
     path('patient_list/<int:id>/dossier_medical/',patient.views.dossier_medical,name='dossier_medical'),
-    path('patient/<int:id>/creer_dossier_medical/',patient.views.create_dossier_medical,name='creer_dossier_medical')
-    
+    path('patient/<int:id>/creer_dossier_medical/',patient.views.create_dossier_medical,name='creer_dossier_medical'),
+    # rapport medical
+    path('dossier/<int:id>/rapport_medical/',patient.views.rapport_medical,name='rapport_medical'),
+    path('dossier/<int:id>/creer_rapport_medical/',patient.views.creer_rapport_medical,name='creer_rapport_medical'),
 ]
 
 if settings.DEBUG:

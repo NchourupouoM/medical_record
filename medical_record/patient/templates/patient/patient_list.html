@@ -2,15 +2,16 @@
 {% block content %}
 
 <h1>Liste des patients </h1>
-<ul>
+<div>
     {% for patient in patients %}
-        <li><span>{{ patient.first_name }}</span> | 
+        <p><span>{{ patient.first_name }}</span> | 
             <span>{{patient.last_name}}</span> |
             <span>{{patient.date_naissance}}</span> |
             <span> {{ patient.sex }}</span> | 
             <span> <a href="{% url 'dossier_medical' patient.id %}"> Dossier Medical </a></span>|
-            <span><a href="{% url 'creer_dossier_medical' patient.id %}"> creer dossier medical</a></span></li>
+            <span><a href="{% url 'creer_dossier_medical' patient.id %}"> creer dossier medical</a></span></p>
+            <div style="border-top: 1px solid #0e0c0c;"></div>
     {% endfor %}
-</ul>
+</div>
 
 {% endblock %}

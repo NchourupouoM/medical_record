@@ -25,8 +25,23 @@ def dossier_medical(request,id):
 
 #============================ rapport medical ============================
 def rapport_medical(request,id):
-    rapports = Rapport_medical.objects.all(examen_medical=id)
-    return render(request,'patient/examen_medical.html',{"rapports":rapports})
+    examen = Examen_medical.objects.get(id=id)
+    rapports = Rapport_medical.objects.filter(examen_medical=examen)
+    return render(request,'patient/rapport_medical.html',{"rapports":rapports})
+
+# ============================= creer rapport medical =======================
+def creer_rapport_medical(request,id):
+    examen = Examen_medical.objects.get(id=id)
+    form = forms.RapportmedicalForm()
+    if request.method == 'POST':
+        form = forms.RapportmedicalForm(request.POST)
+        if form.is_valid():
+            rapport = form.save(commit=False)
+            rapport.medecin = request.user
+            rapport.examen_medical = examen
+            rapport.save()
+            return redirect('patient_list')
+    return render(request,'patient/rapport_medical_form.html',{"form":form})
 
 #============================ creation dossier medical ====================
 def create_dossier_medical(request, id):

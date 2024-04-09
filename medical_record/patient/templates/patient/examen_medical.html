@@ -6,6 +6,8 @@
 <ul>
     <li><strong>Type de rapport :</strong> {{ dossier.type_rapport }}</li>
     <li><strong>Date de création :</strong> {{ dossier.date_creation }}</li>
+    <div style="border-top: 1px solid #0e0c0c;"></div>
+    <p><a href="{% url 'rapport_medical' dossier.id %}">Rapports medicals</a>|<a href="{% url 'creer_rapport_medical' dossier.id %}"> Ajouter un rapport medical</a></p>
 </ul>
 {% endfor %}
 
