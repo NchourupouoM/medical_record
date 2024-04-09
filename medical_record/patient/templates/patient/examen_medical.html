@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Dossier médical de </h1>
+{% for dossier in dossiers %}
+<ul>
+    <li><strong>Type de rapport :</strong> {{ dossier.type_rapport }}</li>
+    <li><strong>Date de création :</strong> {{ dossier.date_creation }}</li>
+</ul>
+{% endfor %}
+
+{% endblock %}

@@ -26,7 +26,9 @@ urlpatterns = [
     path('signup/',authentication.views.signup_page, name='signup'),
     # patient urls
     path('home/',patient.views.home, name='home'),
-    path('patient_list/',patient.views.patient_list,name='patient_list')
+    path('patient_list/',patient.views.patient_list,name='patient_list'),
+    path('patient_list/<int:id>/dossier_medical/',patient.views.dossier_medical,name='dossier_medical'),
+    path('patient/<int:id>/creer_dossier_medical/',patient.views.create_dossier_medical,name='creer_dossier_medical')
     
 ]
 

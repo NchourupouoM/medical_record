@@ -4,7 +4,12 @@
 <h1>Liste des patients </h1>
 <ul>
     {% for patient in patients %}
-        <li><span>{{ patient.first_name }}</span> | <span>{{patient.last_name}}</span> | <span>{{patient.date_naissance}}</span> | <span> {{ patient.sex }}</span></li>
+        <li><span>{{ patient.first_name }}</span> | 
+            <span>{{patient.last_name}}</span> |
+            <span>{{patient.date_naissance}}</span> |
+            <span> {{ patient.sex }}</span> | 
+            <span> <a href="{% url 'dossier_medical' patient.id %}"> Dossier Medical </a></span>|
+            <span><a href="{% url 'creer_dossier_medical' patient.id %}"> creer dossier medical</a></span></li>
     {% endfor %}
 </ul>
 

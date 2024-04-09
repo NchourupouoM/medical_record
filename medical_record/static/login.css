@@ -1,5 +1,5 @@
-*{
-    background-color: rgb(227, 243, 245);
+body{
+    background-color: #a39f9f
 }
 
 .ConnexionPage{
@@ -15,11 +15,8 @@
     margin-top: 180px;
     width: 150px;
     height: 150px;
+    border-radius: 10px;
 }
-
-/* .formConnexion{
-
-} */
 
 .GajelabTitle{
     font-size: 20px;
