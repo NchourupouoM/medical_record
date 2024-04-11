@@ -9,7 +9,7 @@
             <span>{{patient.date_naissance}}</span> |
             <span> {{ patient.sex }}</span> | 
             <span> <a href="{% url 'dossier_medical' patient.id %}"> Dossier Medical </a></span>|
-            <span><a href="{% url 'creer_dossier_medical' patient.id %}"> creer dossier medical</a></span></p>
+            <span><a href="{% url 'creer_dossier_medical' patient.id %}"> creer dossier medical</a></span>|<span><a href="{% url 'hospitalise_patient' patient.id %}">hospitalise ce patient</a></span></p>
             <div style="border-top: 1px solid #0e0c0c;"></div>
     {% endfor %}
 </div>

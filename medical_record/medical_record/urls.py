@@ -32,6 +32,9 @@ urlpatterns = [
     # rapport medical
     path('dossier/<int:id>/rapport_medical/',patient.views.rapport_medical,name='rapport_medical'),
     path('dossier/<int:id>/creer_rapport_medical/',patient.views.creer_rapport_medical,name='creer_rapport_medical'),
+    #hospitalisation
+    path('hospitalise_patient/<int:id>/',patient.views.hospitalisationform,name='hospitalise_patient'),
+    path('list_patient_hospitalises/',patient.views.list_patient_hospitalise,name='list_patient_hospitalise')
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,12 @@
+<h1>Liste des patient hospitalises</h1>
+{% for patient_hospitalise in patients_hospitalises %}
+<ul>
+    <li><span>{{ patient_hospitalise.patient.first_name }}</span>|
+    <span>{{ patient_hospitalise.patient.last_name }}</span>|
+    <span>{{patient_hospitalise.motif}}</span>|
+    <span>{{patient_hospitalise.medecin}}</span>|
+    <span>{{patient_hospitalise.numero_de_chambre }}</span>|
+    <span>{{ patient_hospitalise.date_hospitalisation }}</span></li>
+    <div style="border-top: 1px solid #0e0c0c;"></div>
+</ul>
+{% endfor %}

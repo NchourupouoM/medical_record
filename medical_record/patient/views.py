@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from authentication.models import User
-from .models import Examen_medical,Rapport_medical
+from .models import Examen_medical,Rapport_medical,Hospitalisation
 
 from . import forms
 
@@ -56,3 +56,22 @@ def create_dossier_medical(request, id):
             dossier.save()  # Sauvegarder l'instance avec le champ patient
             return redirect('patient_list')
     return render(request, 'patient/form_examen_medical.html', {"form": form})
+
+# ============================= Hospitalisation ===========================
+def list_patient_hospitalise(request):
+    patients_hospitalises = Hospitalisation.objects.all()
+    return render(request,'patient/patients_hospitalise.html',{"patients_hospitalises":patients_hospitalises})
+
+
+def hospitalisationform(request,id):
+    user = User.objects.get(id=id)
+    form = forms.HospitalisationForm()
+    if request.method == 'POST':
+        form = forms.HospitalisationForm(request.POST)
+        if form.is_valid():
+            hospitalisation = form.save(commit=False)
+            hospitalisation.patient = user
+            hospitalisation.medecin = request.user
+            hospitalisation.save()
+            return redirect('list_patient_hospitalise')
+    return render(request,'patient/patient_hospitalise_form.html',{"form":form})
