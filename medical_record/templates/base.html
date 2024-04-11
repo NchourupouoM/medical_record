@@ -6,13 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> medical record </title>
     <link rel="stylesheet" href="{% static 'login.css'%}">
+    <link rel="stylesheet" href="{% static 'homepage.css'%}">
 </head>
 <body>
-    {% block content %}{% endblock content %}
-    {% if user.is_authenticated %}
-        <p><a href="{% url 'logout' %}">Se déconnecter</a></p>
-        <p><a href="{% url 'password_change' %}">changer le mot de passe</a></p>
-        <p><a href="{% url 'list_patient_hospitalise' %}">liste des patients hospitalises</a></p>
-    {% endif %}
+    <div class="homeprincipal">
+        <div class="sidebar">
+            <p class="appTitle">Medical Record Gajelabs</p>
+            <img src="{% static 'images/gajelab.jpeg'%}" alt="">
+            {% if user.is_authenticated %}
+            
+            <div class="links">
+                <p ><a href="{% url 'signup' %}">Ajouter patient</a></p>
+                <p><a href="{% url 'home' %}">Acceuil</a></p>
+                <p><a href="{% url 'patient_list' %}">Patients</a></p>
+                <p><a class="hospitalisation" href="{% url 'list_patient_hospitalise' %}">hospitalisation</a></p>
+                <p><a href="{% url 'password_change' %}">changer le mot de passe</a></p>
+                <p><a class="discount" href="{% url 'logout' %}">Se déconnecter</a></p>
+            </div>
+            {% endif %}
+        </div>
+        <div class="principal">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
 </body>
 </html>
