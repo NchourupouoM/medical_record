@@ -34,9 +34,12 @@ urlpatterns = [
     path('dossier/<int:id>/creer_rapport_medical/',patient.views.creer_rapport_medical,name='creer_rapport_medical'),
     #hospitalisation
     path('hospitalise_patient/<int:id>/',patient.views.hospitalisationform,name='hospitalise_patient'),
-    path('list_patient_hospitalises/',patient.views.list_patient_hospitalise,name='list_patient_hospitalise')
-]
+    path('list_patient_hospitalises/',patient.views.list_patient_hospitalise,name='list_patient_hospitalise'),
+    # ordonnance
+    path('ordonnance/<int:id>/',patient.views.ordonnance,name="ordonner_medicament"),
+    path('list_ordonnace/<int:id>/',patient.views.list_ordonnances,name='list_ordonnance')
 
+]
 if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

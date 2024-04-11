@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Mes ordonnances</h1>
+<div>
+    {% for ordonnance in ordonnances %}
+    <p><span>{{ ordonnance.patient.first_name }}</span> |
+        <span>{{ordonnance.medecin.firs_name}}</span> |
+        <span>{{ordonnance.medicament_prescrits.nom_medicament}}</span>|
+        <span>{{ordonnance.medicament_prescrits.Dosage}}</span> |
+        <span>{{ordonnance.medicament_prescrits.forme_pharmaceutique}}</span> |
+        <span>{{ordonnance.medicament_prescrits.Posologie}}</span>|
+        <span>{{ordonnance.medicament_prescrits.dure_traitement}}</span>|
+        <span> {{ ordonnance.date_prescription }}</span> |
+    <div style="border-top: 1px solid #0e0c0c;"></div>
+    {% endfor %}
+</div>
+
+{% endblock %}

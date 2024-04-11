@@ -24,3 +24,15 @@ class HospitalisationForm(forms.ModelForm):
         self.fields['patient'].queryset = User.objects.filter(groups__name='patient')
         # Filtrer par le groupe 'Medecins'
         self.fields['medecin'].queryset = User.objects.filter(groups__name='medecin')
+
+class OrdonnanceForm(forms.ModelForm):
+    class Meta:
+        model = models.Ordonnance
+        fields = ['patient','medecin','medicament_prescrits']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Filtrer par le groupe 'Patients'
+        self.fields['patient'].queryset = User.objects.filter(groups__name='patient')
+        # Filtrer par le groupe 'Medecins'
+        self.fields['medecin'].queryset = User.objects.filter(groups__name='medecin')

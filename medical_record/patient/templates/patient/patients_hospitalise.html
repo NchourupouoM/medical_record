@@ -6,7 +6,8 @@
     <span>{{patient_hospitalise.motif}}</span>|
     <span>{{patient_hospitalise.medecin}}</span>|
     <span>{{patient_hospitalise.numero_de_chambre }}</span>|
-    <span>{{ patient_hospitalise.date_hospitalisation }}</span></li>
+    <span>{{patient_hospitalise.date_hospitalisation }}</span>
+    <span><a href="{% url 'ordonner_medicament' patient_hospitalise.id %}">ordonner des comprimes</a></span></li>
     <div style="border-top: 1px solid #0e0c0c;"></div>
 </ul>
 {% endfor %}
