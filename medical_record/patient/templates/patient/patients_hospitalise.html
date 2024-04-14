@@ -25,7 +25,11 @@
         </div>
     </div>
     <div class="linkContent">
-        <span><a href="{% url 'ordonner_medicament' patient_hospitalise.id %}">Prescrire des comprimes</a></span>
+        {% if perms.patient.add_medicament%}
+        <span>
+            <a href="{% url 'ordonner_medicament' patient_hospitalise.id %}">Prescrire des comprimes</a>
+        </span>
+        {% endif %}
     </div>
 </div>
 <div  style="border-top: 1px solid #0e0c0c;margin-left: 5px;margin-right: 5px;"></div>

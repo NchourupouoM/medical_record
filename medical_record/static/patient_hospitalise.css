@@ -1,6 +1,7 @@
 .hospitaliseContent{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 3px;
     margin-left: 5px;
     margin-right: 5px;
@@ -9,12 +10,14 @@
 .contentPatient{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 8px;
 }
 
 .patientInf{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 .Title{
     font-weight: bold;

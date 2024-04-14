@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,permission_required
 from authentication.models import User
 from .models import Examen_medical,Rapport_medical,Hospitalisation,Medicament,Ordonnance
 
@@ -14,26 +14,35 @@ def home(request):
 
 #=========================== liste des patient ==========================
 # liste des patients
+@login_required
 def patient_list(request):
     patients = User.objects.filter(groups__name='patient')
     return render(request,'patient/patient_list.html',{"patients":patients})
+# ============================== Liste des Medecins =====================
+@login_required
+def Liste_medecin(request):
+    medecins = User.objects.filter(groups__name='medecin')
+    return render(request,'patient/medecin_list.html',{"medecins":medecins})
 
 #============================ Dossier medical ============================
-
+@login_required
+# @permission_required('patient.view_examen_medical',raise_exception=True)
 def dossier_medical(request,id):
     user = User.objects.get(id=id)
     dossiers = Examen_medical.objects.filter(patient=user)
     return render(request,'patient/examen_medical.html',{"dossiers":dossiers})
 
 #============================ rapport medical ============================
-
+@login_required
+# @permission_required('patient.view_rapport_medical')
 def rapport_medical(request,id):
     examen = Examen_medical.objects.get(id=id)
     rapports = Rapport_medical.objects.filter(examen_medical=examen)
     return render(request,'patient/rapport_medical.html',{"rapports":rapports})
 
 # ============================= creer rapport medical =======================
-
+@login_required
+# @permission_required('patient.add_rapport_medical')
 def creer_rapport_medical(request,id):
     examen = Examen_medical.objects.get(id=id)
     form = forms.RapportmedicalForm()
@@ -48,7 +57,8 @@ def creer_rapport_medical(request,id):
     return render(request,'patient/rapport_medical_form.html',{"form":form})
 
 #============================ creation dossier medical ====================
-
+@login_required
+# @permission_required('patient.add_examen_medical')
 def create_dossier_medical(request, id):
     user = User.objects.get(id=id)
     form = forms.DossierMedicalForm(initial={'patient': user})
@@ -63,13 +73,16 @@ def create_dossier_medical(request, id):
     return render(request, 'patient/form_examen_medical.html', {"form": form})
 
 # ============================= Hospitalisation ===========================
-
+login_required
+# @permission_required('patient_view_hospitalisation')
 def list_patient_hospitalise(request):
     patients_hospitalises = Hospitalisation.objects.all()
     return render(request,'patient/patients_hospitalise.html',{"patients_hospitalises":patients_hospitalises})
 
 # ==============================Hospitalise un patient ====================
 
+@login_required
+# @permission_required('patient.add_hospitalisation')
 def hospitalisationform(request,id):
     user = User.objects.get(id=id)
     form = forms.HospitalisationForm()
@@ -85,6 +98,8 @@ def hospitalisationform(request,id):
 
 # =========================== prescrire une ordonnance ==========================
 
+@login_required
+# @permission_required('patient.add_ordonnance')
 def ordonnance(request,id):
     medicament = Medicament.objects.get(id=1)
     patient_hospitalise = Hospitalisation.objects.get(id=id)
@@ -94,13 +109,16 @@ def ordonnance(request,id):
         if form.is_valid():
             ord = form.save(commit=False)
             ord.patient = patient_hospitalise.patient
-            ord.medicament_prescrits = medicament.nom_medicament
+            ord.medicament_prescrits = medicament
             ord.medecin = request.user
             ord.save()
             return redirect('list_patient_hospitalise')
     return render(request,'patient/ordonnance_form.html',{"form":form})
 
 # ============================= liste des ordonnaces pour un patient specifique ============
+
+@login_required
+# @permission_required('patient.view_ordonnance')
 def list_ordonnances(request,id):
     patient = User.objects.get(id=id)
     ordonnances = Ordonnance.objects.filter(patient=patient)

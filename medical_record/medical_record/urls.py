@@ -37,8 +37,9 @@ urlpatterns = [
     path('list_patient_hospitalises/',patient.views.list_patient_hospitalise,name='list_patient_hospitalise'),
     # ordonnance
     path('ordonnance/<int:id>/',patient.views.ordonnance,name="ordonner_medicament"),
-    path('list_ordonnace/<int:id>/',patient.views.list_ordonnances,name='list_ordonnance')
-
+    path('list_ordonnace/<int:id>/',patient.views.list_ordonnances,name='list_ordonnance'),
+    # medecin
+    path('medecins/',patient.views.Liste_medecin,name='liste_medecins')
 ]
 if settings.DEBUG:
     urlpatterns += static(

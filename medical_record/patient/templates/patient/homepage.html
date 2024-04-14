@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 <p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
-<div>
-    
-<p class="welcome">bienvenu sur Medical Record Gajelabs, {{user.username }}</p>    
+<div class="HomePrincipal">
+    <p class="gagelabTitle">Medical Record Gajelabs</p>
+    <img class="imageHome" src="{% static 'images/Doctors_images.jpeg' %}" alt="">
+    <p class="welcome" >Bienvenu, {{user.username }}</p>
 </div>
 {% endblock content %}

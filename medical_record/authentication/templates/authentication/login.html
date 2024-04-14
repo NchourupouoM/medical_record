@@ -6,10 +6,10 @@
     <div class="formConnexion">
         <p class="GajelabTitle">Medical Record Gajelabs</p>
         <h2 >Connexion</h2>
-        <form method="post">
+        <form class="formLogin" method="post">
             {{ form.as_p }}
             {% csrf_token %}
-            <button type="submit">Se connecter</button>
+            <button class="boutonLogin" type="submit">Se connecter</button>
         </form>
     </div>
     <div class="imageGajelab">

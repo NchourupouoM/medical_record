@@ -16,15 +16,37 @@
     <div class="homeprincipal">
         <div class="sidebar">
             <p class="appTitle">Medical Record Gajelabs</p>
-            <img src="{% static 'images/gajelab.jpeg'%}" alt="">
+            <img class="imageBase" src="{% static 'images/gajelab.jpeg'%}" alt="">
             {% if user.is_authenticated %}
             
             <div class="links">
-                <p><a href="{% url 'home' %}">Acceuil</a></p>
-                <p><a href="{% url 'patient_list' %}">Patients</a></p>
-                <p><a class="hospitalisation" href="{% url 'list_patient_hospitalise' %}">hospitalisation</a></p>
-                <p><a href="{% url 'password_change' %}">changer le mot de passe</a></p>
-                <p><a class="discount" href="{% url 'logout' %}">Se déconnecter</a></p>
+                <p>
+                    <a href="{% url 'home' %}">Acceuil</a>
+                </p>
+                <p><details>
+                    <summary>Patients</summary>
+                    <a href="{% url 'patient_list' %}">Liste patient</a>
+                    {% if perms.authentication.add_user %}
+                    <a class="addPatient" href="{% url 'signup' %}">Ajouter patient<a>
+                    {% endif %}
+                    <a class="hospitalisation" href="{% url 'list_patient_hospitalise' %}">hospitalisation</a>
+                    </details>
+                </p>
+                <p>
+                <details>
+                    <summary>Medecins</summary>
+                    <a href="{% url 'liste_medecins' %}">Liste Medecins</a>
+                    {% if perms.authentication.add_user %}
+                    <a class="addPatient" href="{% url 'signup' %}">Ajouter Medecins<a>
+                    {% endif %}
+                </details>
+                </p>
+                <p>
+                    <a href="{% url 'password_change' %}">changer le mot de passe</a>
+                </p>
+                <p>
+                    <a class="discount" href="{% url 'logout' %}">Se déconnecter</a>
+                </p>
             </div>
             {% endif %}
         </div>

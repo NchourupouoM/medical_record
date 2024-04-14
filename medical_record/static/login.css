@@ -36,3 +36,9 @@ h2{
     color: rgb(178, 80, 80);
     width: 280px;
 }
+
+.formLogin .boutonLogin{
+    color: white;
+    background-color: #4350C3;
+    border-radius: 5px;
+}

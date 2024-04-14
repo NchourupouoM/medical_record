@@ -24,7 +24,7 @@ body{
 }
 
 
-img{
+.imageBase{
     width: 98%;
     height: 10em;
     border-bottom-left-radius: 10px;
@@ -73,6 +73,21 @@ img{
     text-decoration: underline;
 }
 
+details{
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+details a{
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+details a:hover{
+    text-decoration: underline;
+}
+
 .links{
     margin-left: 10px;
 }
@@ -81,8 +96,27 @@ img{
     margin-left: 5px;
 }
 
-.welcome{
+.gagelabTitle{
     font-weight: bold; 
     text-align: center;
-    color: #1F31D2,
+    color: #1F31D2;
+    width: 120px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+    margin-top: 20%;
+}
+
+.imageHome{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.HomePrincipal{
+    margin: auto;
+    width: 40%;
+}
+.welcome{
+    margin-left: 80px;
+    margin-top: 10px;
 }
