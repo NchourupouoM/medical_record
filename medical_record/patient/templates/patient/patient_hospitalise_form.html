@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 <p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
-<h2>Creation dossier medical</h2>
+<h2>Hospitalisation du patient</h2>
 <form method="post">
     {{ form.as_p }}
     {% csrf_token %}

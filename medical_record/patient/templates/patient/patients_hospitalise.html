@@ -2,36 +2,38 @@
 {% block content %}
 <p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
 <h1>Liste des patient hospitalises</h1>
-{% for patient_hospitalise in patients_hospitalises %}
-<div class="hospitaliseContent">
-    <div class="contentPatient">
-        <div class="patientInf">
-            <span class="Title">Nom</span><span>{{ patient_hospitalise.patient.first_name }}</span>
+<div style="overflow: auto; height: 400px;">
+    {% for patient_hospitalise in patients_hospitalises %}
+    <div class="hospitaliseContent">
+        <div class="contentPatient">
+            <div class="patientInf">
+                <span class="Title">Nom</span><span>{{ patient_hospitalise.patient.first_name }}</span>
+            </div>
+            <div class="patientInf">
+                <span class="Title">prenom </span><span>{{ patient_hospitalise.patient.last_name }}</span>
+            </div>
+            <div class="patientInf">
+                <span class="Title">Motif</span><span>{{patient_hospitalise.motif}}</span>
+            </div>
+            <div class="patientInf">
+                <span class="Title">Medecin</span><span>{{patient_hospitalise.medecin}}</span>
+            </div>
+            <div class="patientInf">
+                <span class="Title">Chambre </span><span>{{patient_hospitalise.numero_de_chambre }}</span>
+            </div>
+            <div class="patientInf">
+                <span class="Title">Hospitalisation</span><span>{{patient_hospitalise.date_hospitalisation }}</span>
+            </div>
         </div>
-        <div class="patientInf">
-            <span class="Title">prenom </span><span>{{ patient_hospitalise.patient.last_name }}</span>
-        </div>
-        <div class="patientInf">
-            <span class="Title">Motif</span><span>{{patient_hospitalise.motif}}</span>
-        </div>
-        <div class="patientInf">
-            <span class="Title">Medecin</span><span>{{patient_hospitalise.medecin}}</span>
-        </div>
-        <div class="patientInf">
-            <span class="Title">Chambre </span><span>{{patient_hospitalise.numero_de_chambre }}</span>
-        </div>
-        <div class="patientInf">
-            <span class="Title">Hospitalisation</span><span>{{patient_hospitalise.date_hospitalisation }}</span>
+        <div class="linkContent">
+            {% if perms.patient.add_medicament%}
+            <span>
+                <a href="{% url 'ordonner_medicament' patient_hospitalise.id %}">Prescrire des comprimes</a>
+            </span>
+            {% endif %}
         </div>
     </div>
-    <div class="linkContent">
-        {% if perms.patient.add_medicament%}
-        <span>
-            <a href="{% url 'ordonner_medicament' patient_hospitalise.id %}">Prescrire des comprimes</a>
-        </span>
-        {% endif %}
-    </div>
+    <div style="border-top: 1px solid #0e0c0c;margin-left: 5px;margin-right: 5px;"></div>
 </div>
-<div  style="border-top: 1px solid #0e0c0c;margin-left: 5px;margin-right: 5px;"></div>
 {% endfor %}
 {% endblock %}

@@ -101,3 +101,40 @@
 .list_patient_scroll{
         overflow-y: auto;
 }
+/* ==============Rapport medical================== */
+.listeRapport{
+    margin-left: 5px;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.elementRapport{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.DateRapport{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/* ===========Dossier medical============  */
+.listeRapport span a{
+    text-decoration: none;
+    background-color: #4350C3;
+    border-radius: 5px;
+    color: white;
+    padding: 2px;
+}
+/* ================= ordonnance ============== */
+.label{
+    font-weight: bold;
+}
+
+.elementRapport #Posologie{
+    width: 100px;
+}
+

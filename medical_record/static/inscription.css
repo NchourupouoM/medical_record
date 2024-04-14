@@ -58,6 +58,7 @@
     padding-bottom: 5px;
     border-radius: 5px;
     color:white;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
 .inscForm button:hover{
@@ -66,4 +67,10 @@
 
 .AjoutMembre{
     margin-bottom: 0;
+}
+
+.inscForm p input,select{
+    border-radius: 5px;
+    border-width: 1px black;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
 }

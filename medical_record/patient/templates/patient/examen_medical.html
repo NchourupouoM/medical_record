@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 <p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
-<h1>Dossier médical de </h1>
+<h1 class="DateRapport">Dossiers médicals</h1>
 {% for dossier in dossiers %}
 
-<ul>
-    <li><strong>Type de rapport :</strong> {{ dossier.type_rapport }}</li>
-    <li><strong>Date de création :</strong> {{ dossier.date_creation }}</li>
-    <div style="border-top: 1px solid #0e0c0c;"></div>
-    <p><a href="{% url 'rapport_medical' dossier.id %}">Rapports medicals</a>|<a href="{% url 'creer_rapport_medical' dossier.id %}"> Ajouter un rapport medical</a></p>
-</ul>
+<div class="listeRapport">
+    <div class="elementRapport"><strong>Type de rapport</strong><span>{{ dossier.type_rapport }}</span></div>
+    <div class="elementRapport"><strong>Date de création</strong><span>{{ dossier.date_creation }}</span></div>
+        <span>
+            <a href="{% url 'rapport_medical' dossier.id %}">Rapports medicals</a>
+        </span>
+        <span>
+            <a href="{% url 'creer_rapport_medical' dossier.id %}"> Ajouter un rapport medical
+            </a>
+        </span>
+</div>
+<div class="DateRapport" style="border-top: 1px solid #0e0c0c;"></div>
 {% endfor %}
 
 {% endblock %}

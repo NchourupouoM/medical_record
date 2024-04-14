@@ -2,15 +2,15 @@
 {% block content %}
 <p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
 {% for rapport in rapports %}
-<h1>Rapport medical du {{ rapport.date_consultation }}</h1>
-<ul>
-    <li><strong>motif de la consultation :</strong> {{ rapport.motif_consultation }}</li>
-    <li><strong>traitement prescrit :</strong> {{ rapport.traitement_prescrit }}</li>
-    <li><strong>recommandation : </strong> {{ rapport.recommandation }}</li>
-    <li><strong>Medecin traitant : </strong>{{ rapport.medecin }}</li>
-    <li><strong>mise a jour le </strong> {{ rapport.date_modification }}</li>
-    <div style="border-top: 1px solid #0e0c0c;"></div>
-</ul>
+<h1 class="DateRapport">Rapport medical du {{ rapport.date_consultation }}</h1>
+<div class="listeRapport">
+    <div class="elementRapport"><strong>motif de la consultation </strong> <span>{{ rapport.motif_consultation }}</span></div>
+    <div class="elementRapport"><strong>traitement prescrit </strong><span>{{ rapport.traitement_prescrit }}</span></div>
+    <div class="elementRapport"><strong>recommandation</strong><span>{{ rapport.recommandation }}</span></div>
+    <div class="elementRapport"><strong>Medecin traitant</strong><span>{{ rapport.medecin }}</span></div>
+    <div class="elementRapport"><strong>mise a jour le </strong><span>{{ rapport.date_modification }}</span></div>
+</div>
+<div class="DateRapport" style="border-top: 1px solid #0e0c0c;"></div>
 {% endfor %}
 
 {% endblock %}

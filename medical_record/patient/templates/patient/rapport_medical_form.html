@@ -2,10 +2,12 @@
 {% block content %}
 {% load static %}
 <p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
-<h2> Creation du rapport </h2>
-<form method="post">
+<div class="formOrdonnance">
+<h3> Creation du rapport </h3>
+<form class="formOrdonnance" method="post">
     {{ form.as_p }}
     {% csrf_token %}
-    <button type="submit">Valider</button>
+    <button class="boutonOrdonnance" type="submit">Valider</button>
 </form>
+</div>
 {% endblock content %}
