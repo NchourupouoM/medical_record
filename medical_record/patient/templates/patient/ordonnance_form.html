@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<p class="headPage"></p>
+<p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
 <h2>Ordonnance</h2>
 <form method="post">
     {{ form.as_p }}

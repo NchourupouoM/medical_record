@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-<p class="headPage"></p>
-<h1>Liste des patients </h1>
-<div>
+<p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
+
+<div class="imagePatient_add">
+    <span>patients</span>
+    <a class="addPatient" href="{% url 'signup' %}">Ajouter patient<a>
+</div>
+
+<div class="content_patient_list">
     {% for patient in patients %}
-        <p><span>{{ patient.first_name }}</span> | 
-            <span>{{patient.last_name}}</span> |
-            <span>{{patient.date_naissance}}</span> |
-            <span> {{ patient.sex }}</span> | 
-            <span> <a href="{% url 'dossier_medical' patient.id %}"> Dossier Medical </a></span>|
-            <span><a href="{% url 'creer_dossier_medical' patient.id %}"> creer dossier medical</a></span>|<span><a href="{% url 'hospitalise_patient' patient.id %}">hospitalise ce patient</a></span>|
-            <span><a href="{% url 'list_ordonnance' patient.id %}">Mes ordonnances</a></span></p>
+        <div class="info_link_patient">
+            <div class="infoPatient">
+                <div class="patien_list"><span class="label">Nom </span><span>{{ patient.first_name }}</span></div>
+                <div class="patien_list"><span class="label">Prenom </span><span>{{patient.last_name}}</span></div>
+                <div class="patien_list"><span class="label">Date de naissance </span><span>{{patient.date_naissance}}</span></div>
+                <div class="patien_list"><span class="label">Sex</span><span> {{ patient.sex }}</span></div>
+            </div>
+            <div class="linkPatient">
+                <span><a class="dossierM" href="{% url 'dossier_medical' patient.id %}"> Dossier Medical </a></span>
+                <span><a class="dossierM" href="{% url 'creer_dossier_medical' patient.id %}"> creer dossier medical</a></span><span><a class="dossierM"
+                        href="{% url 'hospitalise_patient' patient.id %}">hospitalise ce patient</a></span>
+                <span><a class="dossierM" href="{% url 'list_ordonnance' patient.id %}">ordonnances</a></span>
+            </div>
+        </div>
             <div style="border-top: 1px solid #0e0c0c;"></div>
     {% endfor %}
 </div>

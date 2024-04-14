@@ -1,0 +1,101 @@
+.content_patient_list,h1{
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 40px;
+}
+
+.content_patient_list .info_link_patient{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.content_patient_list .label{
+    font-weight: bold;
+}
+
+.patien_list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.content_patient_list .info_link_patient{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.infoPatient{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.linkPatient a{
+    text-decoration: none;
+    margin-left: 7px;
+    font-size: 15px;
+    width: 10px;
+}
+
+.linkPatient{
+    padding: 0;
+}
+
+.patien_list span{
+    font-size: 15px;
+}
+
+.info_link_patient{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+}
+.linkPatient{
+    display: flex;
+    flex-wrap: wrap;
+    grid:10px;
+    font-size: 15px;
+}
+
+.dossierM{
+    background-color: #4350C3;
+    color: white;
+    border: 2px ;
+    border-radius: 5px;
+    padding:2px;
+}
+
+.linkPatient .dossierM:hover{
+    background-color: #00000080;
+}
+
+.content_patient_list{
+    margin-top: 30px;
+}
+
+.imagePatient_add{
+    width: 100%;
+    margin-left: 5px;
+}
+
+.imagePatient_add a{
+    position: absolute;
+    right: 0;
+    margin-left: 10px;
+    text-decoration: none;
+    background-color: #4350C3;
+    border-radius: 5px;
+    color: white;
+    padding:2px ;
+}
+
+.imagePatient_add a:hover{
+    background-color: #00000080;
+}
+
+

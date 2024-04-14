@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<p class="headPage"></p>
+<p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
 <h1>Mes ordonnances</h1>
 <div>
     {% for ordonnance in ordonnances %}

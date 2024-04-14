@@ -1,0 +1,38 @@
+.hospitaliseContent{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.contentPatient{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.patientInf{
+    display: flex;
+    flex-direction: column;
+}
+.Title{
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.linkContent a{
+    text-decoration: none;
+    color:white;
+    padding: 2px;
+}
+
+.linkContent span{
+    background-color: #4350C3;
+    border-radius: 5px;
+}
+
+.linkContent span:hover{
+    background-color: #00000080;
+}

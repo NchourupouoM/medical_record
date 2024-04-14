@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<p class="headPage"></p>
+<p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
 <h1>Dossier médical de </h1>
 {% for dossier in dossiers %}
 

@@ -1,0 +1,69 @@
+
+.InscriptionForm{
+    margin: auto;
+    width: 500px;
+}
+
+.InscriptionForm span{
+    font-size: 7px;
+    width: 130px;
+
+}
+
+.InscriptionForm ul li {
+    list-style-type:decimal;
+}
+
+.inscForm span,.InscriptionForm ul li {
+    text-decoration: none;
+    font-size: 7px;
+    font-weight: bold;
+    color: rgb(178, 80, 80);
+    width: 150px;
+    
+}
+.inscForm #id_username_helptext{
+    margin-left: 130px;
+    width: 120px;
+}
+
+.InscriptionForm form{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows:25% 25% 25% 25%;
+}
+
+.InscriptionForm form {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.inscForm p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inscForm p label{
+    font-size:13px;
+}
+
+.inscForm p input{
+    width: 100px;
+}
+
+.inscForm button{
+    background-color: #4350C3;
+    width: 100px;
+    height: 20px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    color:white;
+}
+
+.inscForm button:hover{
+    background-color:#00000080;
+}
+
+.AjoutMembre{
+    margin-bottom: 0;
+}

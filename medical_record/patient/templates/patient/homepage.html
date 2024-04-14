@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<p class="headPage">{{user.profile_photo}}</p>
+<p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
 <div>
     
-<p class="welcome">bienvenu sur Medical Record Gajelabs,{{user.username }}</p>    
+<p class="welcome">bienvenu sur Medical Record Gajelabs, {{user.username }}</p>    
 </div>
 {% endblock content %}

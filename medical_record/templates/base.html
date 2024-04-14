@@ -7,6 +7,10 @@
     <title> medical record </title>
     <link rel="stylesheet" href="{% static 'login.css'%}">
     <link rel="stylesheet" href="{% static 'homepage.css'%}">
+    <link rel="stylesheet" href="{% static 'patient_list.css'%}">
+    <link rel="stylesheet" href="{% static 'patient_hospitalise.css' %}">
+    <link rel="stylesheet" href="{% static 'inscription.css' %}">
+    <link rel="stylesheet" href="{% static 'password_change.css' %}">
 </head>
 <body>
     <div class="homeprincipal">
@@ -16,7 +20,6 @@
             {% if user.is_authenticated %}
             
             <div class="links">
-                <p ><a href="{% url 'signup' %}">Ajouter patient</a></p>
                 <p><a href="{% url 'home' %}">Acceuil</a></p>
                 <p><a href="{% url 'patient_list' %}">Patients</a></p>
                 <p><a class="hospitalisation" href="{% url 'list_patient_hospitalise' %}">hospitalisation</a></p>
