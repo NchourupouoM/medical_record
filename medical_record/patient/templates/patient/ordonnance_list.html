@@ -2,34 +2,38 @@
 {% block content %}
 <p class="headPage"><span>Vous etes connecte en tant que {{user.username}}</span></p>
 <h1 class="DateRapport">Mes ordonnances</h1>
+<div style="overflow: auto; height: 400px;">
 {% for ordonnance in ordonnances %}
-<div class="listeRapport">
-    <div class="elementRapport">
-        <span class="label">Nom</span><span>{{ ordonnance.patient.first_name }}</span>
+    <div class="listeRapport">
+        <div class="elementRapport">
+            <span class="label">Nom</span><span>{{ ordonnance.patient.first_name }}</span>
+        </div>
+        <div class="elementRapport">
+            <span class="label">Medecin prescriteur</span><span>{{ordonnance.medecin}}</span>
+        </div class="elementRapport">
+        <div class="elementRapport">
+            <span class="label">Medicaments</span><span>{{ordonnance.medicament_prescrits.nom_medicament}}</span>
+        </div>
+        <div class="elementRapport">
+            <span class="label">Dosage</span><span>{{ordonnance.medicament_prescrits.Dosage}}</span>
+        </div>
+        <div class="elementRapport">
+            <span class="label">forme</span><span>{{ordonnance.medicament_prescrits.forme_pharmaceutique}}</span>
+        </div>
+        <div class="elementRapport">
+            <span class="label" id="Posologie">Posologie</span><span>{{ordonnance.medicament_prescrits.Posologie}}</span>
+        </div>
+        <div class="elementRapport">
+            <span class="label">Duree Traitement</span><span>{{ordonnance.medicament_prescrits.dure_traitement}}
+                jours</span>
+        </div>
+        <div class="elementRapport">
+            <span class="label">Date</span><span> {{ ordonnance.date_prescription }}</span>
+        </div>
     </div>
-    <div class="elementRapport">
-        <span class="label">Medecin prescriteur</span><span>{{ordonnance.medecin}}</span>
-    </div class="elementRapport">
-    <div class="elementRapport">
-        <span class="label">Medicaments</span><span>{{ordonnance.medicament_prescrits.nom_medicament}}</span>
-    </div>
-    <div class="elementRapport">
-        <span class="label">Dosage</span><span>{{ordonnance.medicament_prescrits.Dosage}}</span>
-    </div>
-    <div class="elementRapport">
-        <span class="label">forme</span><span>{{ordonnance.medicament_prescrits.forme_pharmaceutique}}</span>
-    </div>
-    <div class="elementRapport">
-        <span class="label" id="Posologie">Posologie</span><span>{{ordonnance.medicament_prescrits.Posologie}}</span>
-    </div>
-    <div class="elementRapport">
-        <span class="label">Duree Traitement</span><span>{{ordonnance.medicament_prescrits.dure_traitement}} jours</span>
-    </div>
-    <div class="elementRapport">
-        <span class="label">Date</span><span> {{ ordonnance.date_prescription }}</span>
-    </div>
+    <div class="DateRapport" style="border-top: 1px solid #0e0c0c;"></div>
 </div>
-<div class="DateRapport" style="border-top: 1px solid #0e0c0c;"></div>
+
 {% endfor %}
 </div>
 
